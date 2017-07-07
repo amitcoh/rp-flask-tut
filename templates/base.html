@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" >
+    <title>Welcome</title>
+</head>
+    <body>
+        <div class="container">
+            <!-- Content Block -->
+            {% block content %}{% endblock %}
+
+            <!-- Errors -->
+            {% if error %}
+            <p class="error"><strong>Error: </strong>{{ error }}</p>
+            {% endif %}
+
+            <!-- Messages -->
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    </body>
+</html>
